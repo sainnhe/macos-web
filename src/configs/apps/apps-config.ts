@@ -51,16 +51,6 @@ const systemPreferences = createAppConfig({
   resizable: true,
 });
 
-const purusTwitter = createAppConfig({
-  title: `About the Developer`,
-  resizable: true,
-
-  dockBreaksBefore: true,
-
-  height: 600,
-  width: 800,
-});
-
 const viewSource = createAppConfig({
   title: `View Source`,
   resizable: true,
@@ -69,23 +59,13 @@ const viewSource = createAppConfig({
   externalAction: () => window.open('https://github.com/puruvj/macos-web', '_blank'),
 });
 
-const ukraine = createAppConfig({
-  title: `Support Ukraine`,
-  resizable: true,
-
-  shouldOpenWindow: false,
-  externalAction: () => window.open('https://www.stopputin.net/', '_blank'),
-
-  dockBreaksBefore: true,
-});
-
 const vercel = createAppConfig({
   title: `Powered by Vercel`,
   resizable: true,
 
   shouldOpenWindow: false,
   externalAction: () =>
-    window.open('https://vercel.com/?utm_source=purus-projects&utm_campaign=oss', '_blank'),
+    window.open('https://vercel.com/', '_blank'),
 
   dockBreaksBefore: true,
 });
@@ -106,10 +86,8 @@ export const appsConfig = {
 
   // 'system-preferences': systemPreferences,
 
-  'purus-twitter': purusTwitter,
   'view-source': viewSource,
 
   vercel,
 
-  ukraine,
 };

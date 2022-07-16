@@ -14,12 +14,9 @@ export const openApps = writable<Record<AppID, boolean>>({
   calendar: false,
   // 'system-preferences': false,
 
-  'purus-twitter': false,
   'view-source': true,
 
   vercel: true,
-
-  ukraine: true,
 });
 
 /** Which app is currently focused */
@@ -41,12 +38,10 @@ export const appZIndices = writable<Record<AppID, number>>({
   calendar: 0,
   // 'system-preferences': 0,
 
-  'purus-twitter': 0,
   'view-source': 0,
 
   vercel: 0,
 
-  ukraine: 0,
 });
 
 export const isAppBeingDragged = writable(false);
@@ -61,10 +56,8 @@ export const appsInFullscreen = writable<Record<AppID, boolean>>({
   calendar: false,
   // 'system-preferences': false,
 
-  'purus-twitter': false,
   'view-source': false,
 
   vercel: false,
 
-  ukraine: false,
 });
