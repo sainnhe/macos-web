@@ -10,9 +10,7 @@
     ([, { type }]) => type === 'standalone',
   );
 
-  $: currentWallpaperThumb = `url(/assets/wallpapers/${
-    wallpapersConfig[$wallpaper.id].thumbnail
-  }.jpg)`;
+  $: currentWallpaperThumb = `url(${wallpapersConfig[$wallpaper.id].thumbnail})`;
 
   function changeWallpaper(wallpaperName: WallpaperID) {
     $wallpaper.id = wallpaperName;
@@ -52,10 +50,7 @@
         {#each dynamicWallpapers as [id, { thumbnail, name }]}
           <div class="wallpaper-button">
             <button on:click={() => changeWallpaper(id)}>
-              <img
-                src="/assets/wallpapers/{thumbnail}.jpg"
-                alt="MacOS {name} Wallpapers, dynamic"
-              />
+              <img src={thumbnail} alt="MacOS {name} Wallpapers, dynamic" />
             </button>
             <p>{name}</p>
           </div>
@@ -72,10 +67,7 @@
         {#each standaloneWallpapers as [id, { thumbnail, name }]}
           <div class="wallpaper-button">
             <button on:click={() => changeWallpaper(id)}>
-              <img
-                src="/assets/wallpapers/{thumbnail}.jpg"
-                alt="MacOS {name} Wallpapers, dynamic"
-              />
+              <img src={thumbnail} alt="MacOS {name} Wallpapers, dynamic" />
             </button>
             <p>{name}</p>
           </div>
@@ -86,13 +78,6 @@
 </section>
 
 <style lang="scss">
-  // h1 {
-  //   font-size: 2.2rem;
-  //   line-height: 1.618;
-
-  //   margin: 0 0 1rem 0;
-  // }
-
   h2 {
     line-height: 1.618;
     font-size: 1.618rem;
@@ -225,6 +210,10 @@
       grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
       gap: 1rem;
     }
+  }
+
+  .dynamic-wallpapers .wallpaper-button button {
+    aspect-ratio: 1 / 1;
   }
 
   .standalone-wallpapers .wallpapers {

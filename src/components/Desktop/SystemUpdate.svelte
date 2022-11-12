@@ -13,12 +13,8 @@
   // We don't need to store it on localStorage since the new sw is on skip waiting state, and so
   // a refresh or reopening the browser will prompt again the dialog to restart.
   // Once updateServiceWorker is called, there is a full reload, so the app will be loaded again.
-  let needsUpdate: boolean = false;
 
   const { needRefresh, updateServiceWorker } = useRegisterSW({
-    onNeedRefresh() {
-      needsUpdate = true;
-    },
     onRegistered(swr) {
       console.log(`SW registered: ${swr}`);
     },
@@ -36,10 +32,7 @@
   }
 
   async function handleUpdateApp() {
-    if ($needRefresh) {
-      needsUpdate = false;
-      updateServiceWorker();
-    }
+    updateServiceWorker();
   }
 </script>
 
@@ -48,7 +41,7 @@
     <img
       width="128"
       height="128"
-      src="/assets/app-icons/system-preferences/256.webp"
+      src="/app-icons/system-preferences/256.webp"
       alt="AppStore app"
       draggable="false"
     />
